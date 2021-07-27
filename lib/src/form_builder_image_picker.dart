@@ -41,6 +41,7 @@ class FormBuilderImagePicker extends FormBuilderField<List<dynamic>> {
   final Widget galleryIcon;
   final Widget cameraLabel;
   final Widget galleryLabel;
+  final IconData placeholderIcon;
   final EdgeInsets bottomSheetPadding;
 
   /// Creates field for picking image(s) from Gallery or Camera.
@@ -72,6 +73,7 @@ class FormBuilderImagePicker extends FormBuilderField<List<dynamic>> {
     this.galleryIcon = const Icon(Icons.image),
     this.cameraLabel = const Text('Camera'),
     this.galleryLabel = const Text('Gallery'),
+    this.placeholderIcon = Icons.camera_enhance,
     this.bottomSheetPadding = EdgeInsets.zero,
     this.placeholderImage,
   })  : assert(maxImages == null || maxImages >= 0),
@@ -159,7 +161,7 @@ class FormBuilderImagePicker extends FormBuilderField<List<dynamic>> {
                                 width: previewWidth,
                                 height: previewHeight,
                                 child: Icon(
-                                  Icons.camera_enhance,
+                                  placeholderIcon,
                                   color: state.enabled
                                       ? iconColor ?? primaryColor
                                       : disabledColor,
